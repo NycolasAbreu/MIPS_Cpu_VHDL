@@ -1,0 +1,19 @@
+
+State Machine - |de10_lite|cpu:cpu1|controller:controller|state
+Name state.WAIT_STATE state.ERROR state.WR_BK_REG2 state.WR_BK_REG1 state.JUMP_COMPL state.BRANCH_COMPL state.WR_BK_MEM state.MEM_WR state.MEM_RD state.MEM_CALC state.ID_IMED state.ALU_EXE state.DECODE state.FETCH state.HALT state.STOP 
+state.STOP 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.HALT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.FETCH 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.DECODE 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.ALU_EXE 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.ID_IMED 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.MEM_CALC 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.MEM_RD 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.MEM_WR 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.WR_BK_MEM 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.BRANCH_COMPL 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.JUMP_COMPL 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.WR_BK_REG1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.WR_BK_REG2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.ERROR 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.WAIT_STATE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
