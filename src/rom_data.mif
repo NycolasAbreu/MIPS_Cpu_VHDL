@@ -1,0 +1,88 @@
+WIDTH=16;
+DEPTH=256;
+
+ADDRESS_RADIX=DEC;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+    0           :   6000;   --LDI 0
+    1           :   0201;   --STA #01
+    2           :   6001;   --LDI 1     WHILE
+    3           :   7000;   --SWAP
+    4           :   0101;   --LDE #01
+    5           :   1000;   --ADD
+    6           :   0201;   --STA #01
+    7           :   02FF;   --PRINT
+    --DELAY START
+    8           :   6050;   --LDI 50
+    9           :   0200;   --STA #00
+    10          :   60FF;   --LDI -1    DELAY
+    11          :   7000;   --SWAP
+    12          :   0100;   --LDE #00
+    13          :   1000;   --ADD
+    14          :   0200;   --STA #00
+    15          :   7000;   --SWAP
+    16          :   6000;   --LDI 0
+    17          :   0302;   --BRANCH    GOTO DELAY
+    --DELAY END
+    18          :   0502;   --JUMP      GOTO WHILE
+    19          :   FF00;   --HALT
+    [20..255]   :   0000;
+END;
+
+---------------------------------------------------------
+
+% PROGRAMA LOOP NO DISPLAY
+CONTENT BEGIN
+	0    		:   01FE;
+	1    		:   02FF;
+	2    		:   0500;
+	[3..255]  	:   0000;
+END;
+%
+
+% PROGRAMA SOMAR 2 VALORES
+CONTENT BEGIN
+    0           :   01FE;
+    1           :   02FF;
+    2           :   7000;
+    3           :   01FE;
+    4           :   02FF;
+    5           :   1000;
+    6           :   02FF;
+    7           :   0500;
+    [8..255]    :   0000;
+END;
+%
+
+% PROGRAMA MULT 2 VALORES
+CONTENT BEGIN
+    0           :   01FE;
+    1           :   02FF;
+    2           :   7000;
+    3           :   01FE;
+    4           :   02FF;
+    5           :   2000;
+    6           :   02FF;
+    7           :   0500;
+    [8..255]    :   0000;
+END;
+%
+
+% PROGRAMA DELAY 100
+CONTENT BEGIN
+    0           :   6064;   --LDI 100
+    1           :   0200;   --STA #00
+    2           :   60FF;   --LDI -1    LOOP
+    3           :   7000;   --SWAP
+    4           :   0100;   --LDE #00
+    5           :   02FF;   --PRINT
+    6           :   1000;   --ADD
+    7           :   0200;   --STA #00
+    8           :   7000;   --SWAP
+    9           :   6000;   --LDI 0
+    10          :   0302;   --BRACH     GOTO LOOP
+    11          :   FF00;   --HALT
+    [12..255]   :   0000;
+END;
+%
